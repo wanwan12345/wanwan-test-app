@@ -1,11 +1,16 @@
-table.table
+.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand BINGO!
+
+table.table.table-bordered
   - (1..@max).to_a.each_slice(10) do |datas|
     tr
     - datas.each do |data|
-      - c = 'done' if @values_done.include?(data)
-      - c = 'active' if @value.to_i == data
+      - c = 'active' if @values_done.include?(data)
+      - c = 'success' if @value.to_i == data
       td[class="#{c}"] = data
-=>link_to "NEXT", sample_index_path
+=>link_to "NEXT", sample_index_path, class: "btn btn-success btn-block"
 br
 br
 br
@@ -15,14 +20,3 @@ br
   - v = n * 10
   =>link_to "RESET #{v}", sample_index_path(max: v)
   br
-
-sass:
-  .table
-    td
-      border: 1px #333 solid
-      padding: 5px
-      text-align: center
-  .done
-    background-color: #ccc
-  .active
-    background-color: #c3d825
