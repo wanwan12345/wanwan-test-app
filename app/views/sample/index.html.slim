@@ -9,18 +9,19 @@ table.table
 br
 br
 br
+br
+br
 - for n in (1..7)
   - v = n * 10
   =>link_to "RESET #{v}", sample_index_path(max: v)
+  br
 
 sass:
   .table
-    width: 100%
     td
       border: 1px #333 solid
       padding: 5px
       text-align: center
-      font-size: 80%
   .done
     background-color: #ccc
   .active
